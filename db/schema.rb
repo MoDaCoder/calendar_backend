@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_151651) do
+ActiveRecord::Schema.define(version: 2021_05_11_152629) do
 
   create_table "housings", force: :cascade do |t|
     t.string "address"
@@ -36,4 +36,18 @@ ActiveRecord::Schema.define(version: 2021_05_11_151651) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_days"
+    t.integer "housing_id_id", null: false
+    t.integer "member_id_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["housing_id_id"], name: "index_reservations_on_housing_id_id"
+    t.index ["member_id_id"], name: "index_reservations_on_member_id_id"
+  end
+
+  add_foreign_key "reservations", "housing_ids"
+  add_foreign_key "reservations", "member_ids"
 end
