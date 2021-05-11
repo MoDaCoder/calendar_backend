@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_161229) do
   create_table "reservations", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.integer "total_days"
+    t.integer "total_day"
     t.integer "housing_id", null: false
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
