@@ -17,7 +17,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
       ## Contact details
       t.string :first_name,         null: false, default: ""
       t.string :last_name,          null: false, default: ""
-      t.integer :phone,             null: false, default: ""
+      t.integer :phone
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
