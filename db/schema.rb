@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2021_05_11_161229) do
   end
 
   create_table "pending_approvals", force: :cascade do |t|
+    t.boolean "status"
     t.integer "member_id", null: false
     t.integer "housing_id", null: false
     t.integer "reservation_id", null: false
-    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["housing_id"], name: "index_pending_approvals_on_housing_id"
