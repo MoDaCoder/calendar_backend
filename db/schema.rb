@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2021_05_11_152629) do
     t.date "start_date"
     t.date "end_date"
     t.integer "total_days"
-    t.integer "housing_id_id", null: false
-    t.integer "member_id_id", null: false
+    t.integer "housing_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["housing_id_id"], name: "index_reservations_on_housing_id_id"
-    t.index ["member_id_id"], name: "index_reservations_on_member_id_id"
+    t.index ["housing_id"], name: "index_reservations_on_housing_id"
+    t.index ["member_id"], name: "index_reservations_on_member_id"
   end
 
-  add_foreign_key "reservations", "housing_ids"
-  add_foreign_key "reservations", "member_ids"
+  add_foreign_key "reservations", "housings"
+  add_foreign_key "reservations", "members"
 end
