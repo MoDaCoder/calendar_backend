@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   resources :members do
     resources :reservations
+    resources :pending_approvals
   end
 
   resources :housings do
     resources :reservations
+    resources :pending_approvals
   end
+
+  resources :reservations do
+    resources :pending_approval
 end
