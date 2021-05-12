@@ -3,15 +3,22 @@ Rails.application.routes.draw do
   devise_for :members, controllers: { sessions: 'members/sessions' }
 
   resources :members do
-    resources :reservations
-    resources :pending_approvals
+    resources :reservations do
+      resources :pending_approvals
+    end
   end
 
   resources :housings do
-    resources :reservations
-    resources :pending_approvals
+    resources :reservations do
+      resources :pending_approvals
+    end
   end
 
-  resources :reservations do
-    resources :pending_approval
+  # resources :reservations do
+  #   resources :pending_approval
+  # end
+
+  # resources :pending_approvals
+  # end
+  
 end
