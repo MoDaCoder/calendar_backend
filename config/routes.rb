@@ -4,5 +4,4 @@ Rails.application.routes.draw do
 
   resources :members
   resources :housings
-  end
 end
