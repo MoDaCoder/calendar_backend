@@ -1,2 +1,2 @@
-module HousingHelper
+module HousingsHelper
 end
