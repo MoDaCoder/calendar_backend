@@ -1,5 +1,9 @@
 class HousingsController < ApplicationController
 
+    def index 
+    @housings = Housing.all
+    end
+
     private 
     
     def housing_params
