@@ -4,6 +4,10 @@ class HousingsController < ApplicationController
         @housings = Housing.all
     end
 
+    def create 
+        @housing = Housing.new(housing_params)
+    end
+
     private 
     
     def housing_params
