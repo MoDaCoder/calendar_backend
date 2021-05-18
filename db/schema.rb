@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2021_05_11_161229) do
     t.string "city"
     t.integer "zip"
     t.string "img"
+    t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_housings_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_161229) do
     t.index ["member_id"], name: "index_reservations_on_member_id"
   end
 
+  add_foreign_key "housings", "members"
   add_foreign_key "pending_approvals", "housings"
   add_foreign_key "pending_approvals", "members"
   add_foreign_key "pending_approvals", "reservations"
